@@ -1,0 +1,21 @@
+body {
+    --bs-body-font-family: var(--bs-font-monospace);
+    --bs-body-line-height: 1.4;
+    --bs-body-bg: var(--bs-gray-100);
+  }
+
+  .navbar-dark .nav-item .nav-link {
+    color: #fff;
+  }
+  
+  .navbar-dark .nav-item .nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    border-radius: 0.25rem;
+    color: #fff;
+  }
+  
+  .fa-li {
+    position: relative;
+    left: 0;
+  }

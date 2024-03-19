@@ -1,0 +1,28 @@
+<h1 class="bg-dark bg-opacity-50 text-center text-white">
+    {{category}}
+</h1>
+<div class="row bg-light p-2 mt-3 d-flex justify-content-center" > 
+    <div id="product-list">
+        <div class="row d-flex justify-content-center">
+            {{!-- <div cl></div> --}}
+           {{#each products}}
+           {{> product}}
+           {{/each}}
+        </div>
+    </div>
+    <div class="col-12 mt-3">
+        <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center">
+                <li class="page-item ">
+                <a class="page-link" id="prev" href="#" data-move="prev" data-category ="{{category}}">Previous</a>
+                </li>
+                {{#each pages}}
+                    <li class="page-item"><a class="page-link" href="#" data-page="{{this}}" data-category ="{{category}}">{{this}}</a></li>
+                {{/each}}
+                <li class="page-item">
+                <a class="page-link"  href="#" data-move="next" data-category ="{{category}}">Next</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
