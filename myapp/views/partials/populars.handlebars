@@ -1,6 +1,14 @@
 <div class="row bg-dark bg-opacity-25 p-2   border-radius border-warning border-3 m-2 d-flex justify-content-center" > 
     <h1 class="text-danger text-center">Les plus populaires</h1>  
     {{#each products}}
-    {{> product}}
+        <div class=" col-5 col-md-2 p-2 bg-white m-2"> 
+            {{> product}}
+                {{#if ../isAdmin}} 
+                  <div class="d-flex" style="ustify-content: space-between; display: flex;">
+                    <button class="btn btn-danger float-start data-bs-toggle="button"" style="flex: 1; --bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">SUPPRIMER</button>
+                    <button class="btn btn-secondary float-end ms-1 data-bs-toggle="button"" style="flex: 1; --bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">EDITER</button>
+                  </div>
+                {{/if}}
+        </div>
     {{/each}}
 </div>

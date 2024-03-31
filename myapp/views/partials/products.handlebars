@@ -1,14 +1,21 @@
 <div class="row bg-light p-2 mt-3 d-flex justify-content-center" > 
     <div id="product-list">
         <div class="row d-flex justify-content-center">
-            {{!-- <div cl></div> --}}
-           {{#each products}}
-           {{> product}}
-           {{/each}}
+            {{#each products}}
+            <div class=" col-5 col-md-2 p-2 bg-white m-2"> 
+                {{> product}}
+                 {{#if ../isAdmin}} 
+                  <div class="d-flex" style="ustify-content: space-between; display: flex;">
+                    <button class="btn btn-danger float-start data-bs-toggle="button"" style="flex: 1; --bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">SUPPRIMER</button>
+                    <button class="btn btn-secondary float-end ms-1 data-bs-toggle="button"" style="flex: 1; --bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">EDITER</button>
+                  </div>
+                 {{/if}}
+            </div>
+            {{/each}}
         </div>
     </div>
     <div class="col-12 mt-3">
-        <nav aria-label="Page navigation example">
+        <nav aria-label ="Page navigation example">
             <ul class="pagination justify-content-center">
                 <li class="page-item ">
                 <a class="page-link" id="prev" href="#" data-move="prev" data-category ="all">Previous</a>
@@ -23,3 +30,41 @@
         </nav>
     </div>
 </div>
+{{#if isAdmin}}
+<div class="row mb-3 mt-3 d-flex justify-content-center ">
+    <form action="/add-product" method="post" class="form-group hidden col-md-4 text-center bg-white p-3" id="add-form" style="display: none;">
+         <div class="input-group mb-3">
+            <span class="input-group-text" id="inputGroup-sizing-default">Name</span>
+            <input type="text" name="name" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text">$</span>
+            <span class="input-group-text">0.00</span>
+            <input type="text" name="price" class="form-control" aria-label="Dollar amount (with dot and two decimal places)">
+        </div>
+        <div class="input-group mb-3">
+            <input type="file" class="form-control" id="inputGroupFile02" required >
+            <label class="input-group-text" for="inputGroupFile02">Upload</label>
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text">Description</span>
+            <textarea class="form-control" name="description" aria-label="With textarea"></textarea>
+        </div>
+        <div class="input-group mb-3">
+            <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Category...">
+            <datalist id="datalistOptions">
+                <option value="Ordinateur">
+                <option value="Telephones">
+                <option value="Burreaux">
+                <option value="Autres">
+            </datalist>
+        </div>
+        <div class="input-group mb-3">
+            <button class="btn form-btn btn-outline-info btn-submit" type="button" id="addProduct">Add Product</button>
+        </div>
+    </form>
+    <div class="col-md-12 float-end mt-3 d-flex justify-content-center">
+      <span class="text-success" id="add">Add new product</span>
+    </div>
+</div>
+{{/if}}
