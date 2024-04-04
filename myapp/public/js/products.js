@@ -82,7 +82,6 @@ function toggleContent() {
 }
 
 
-
 function renderProducts(products, isAdmin) {
     // Utilisation de Handlebars pour afficher les produits
     var template = Handlebars.compile(`

@@ -160,15 +160,20 @@ app.get('/categories/:name', routeProtection, (req, res) => {
   const pages = [];
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
+  let haveProducts = false;
   const paginatedProducts = productsCategory.slice(startIndex, endIndex);
   for(let i = 0; i < totalPages; i++){
     pages[i] = i+1;
   }
+  if(productsCategory.length>0) haveProducts = true;
   res.render('categories', {
     title: category,
     products: paginatedProducts,
     category: category,
     pages: pages,
+    isAdmin: isAdmin,
+    haveProducts,
+    category: category
     
   });
 })
